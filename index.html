@@ -3,35 +3,36 @@
 <head>
 <meta charset="utf-8">
 <title>Contact</title>
-<link href="style.css" rel="stylesheet" type="text/css">
+<link href="contact.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
     <header>
-        <nav>
-            <ul class="dropdown-menu">
-                <li><a href="#">About</a>
-                    <ul>
-                        <li><a href="#">Artists</a></li>
-                        <li><a href="#">Price</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">Service</a>
-                    <ul>
-                        <li><a href="#">Hair Washing</a></li>
-                        <li><a href="#">Cut + Styling</a></li>
-                        <li><a href="#">Color</a></li>
-                        <li><a href="#">Hair Donation</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">Contact</a></li>
+<nav>
+    <ul class="dropdown-menu">
+        <li><a href="#">About</a>
+            <ul>
+                <li><a href="https://3626zoe.github.io/113midterm/artists.html#">Artists</a></li>
+                <li><a href="#">Price</a></li>
             </ul>
-            <h1 class="nav-title">Le Rêve Salon</h1>
-            <div class="nav-right">
-                <span class="icon">🛒</span>
-                <a href="#" class="book-btn">Book an Appointment</a>
-            </div>
-        </nav>
+        </li>
+        <li><a href="#">Service</a>
+            <ul>
+                <li><a href="#">Hair Washing</a></li>
+                <li><a href="#">Cut + Styling</a></li>
+                <li><a href="#">Color</a></li>
+                <li><a href="#">Hair Donation</a></li>
+            </ul>
+        </li>
+        <li><a href="https://zirong1229.github.io/113midterm-contact/">Contact</a></li>
+    </ul>
+     <h1 class="nav-title"><a href="https://zirong1229.github.io/113midterm/">Le Rêve Salon</a></h1>
+    <div class="nav-right">
+        <span class="icon">🛒</span>
+        <a href="#" class="book-btn">Book an Appointment</a>
+    </div>
+</nav>
+
     </header>
 
     <div class="spacer"></div>
@@ -80,21 +81,31 @@
                     feedback.innerText = "";
                 }, 2000);
             }).catch(err => {
-                console.error("複製文字失敗: ", err);
+                console.error("COPY FAIL: ", err);
             });
         }
     </script>
-    <footer>
-        <div class="footer-content">
-            <p>Copyright © 2024 Le Rêve Salon. All rights reserved</p>
+    <!-- Footer -->
+<footer>
+    <div class="footer-content">
+        <div class="footer-left">
+            <p>© 2024 Le Rêve Salon. All rights reserved</p>
+        </div>
+        <div class="footer-right">
             <p>45 Rue de Rivoli, 75001 Paris, France</p>
+        </div>
+        <div class="footer-right">
             <div class="social-icons">
-                <a href="https://www.facebook.com" target="_blank">
-   				 <img src="img/fb.jpg" alt="facebook_icon" style="width:30px;height:30px;">
-				</a> 
-      
+                <a href="https://www.facebook.com/" class="icon-link">
+                    <img src="img/fb.jpg" alt="Facebook" />
+                </a>
+                <a href="https://www.google.com/search?q=google&oq=google&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIGCAEQRRg8Mg0IAhAuGMcBGNEDGIAEMgYIAxBFGDwyBggEEEUYPDIGCAUQRRg8MgYIBhBFGEEyBggHEEUYQdIBCDQ0MTdqMGo0qAIIsAIB&sourceid=chrome&ie=UTF-8" class="icon-link">
+                    <img src="img/google.png" alt="Google" />
+                </a>
             </div>
         </div>
-    </footer>
+    </div>
+</footer>
+
 </body>
 </html>
