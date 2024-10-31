@@ -1,0 +1,282 @@
+/* 全局設置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    max-width: 1920px;
+    margin: 0 auto;
+    height: 1540px;
+    
+    /* 背景圖片設置 */
+    background-image: url('bc.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255,255,255,0.60); /* 調整透明度（0.3 是 30% 不透明） */
+    pointer-events: none; /* 讓覆蓋層不影響互動 */
+    z-index: -1;
+}
+
+
+/* 導覽列 */
+header {
+    position: relative;
+    max-width: 1920px;
+    width: 100%;
+    height: 150px;
+    margin: 0 auto;
+    background-color: #b0acac;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+nav {
+    width: 100%;
+    background-color: #ccc;
+    height: 150px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding-left: 20px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    align-items: flex-end;
+}
+
+nav ul li {
+    position: relative;
+    margin: 0 5px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    padding: 8px 50px;
+    display: block;
+}
+
+nav ul li a:hover {
+    background-color: #ddd;
+    border-radius: 0px;
+}
+
+/* 下拉選單 */
+nav ul li > ul {
+    display: none;
+    position: absolute;
+    top: 42px;
+    left: 0;
+    background-color: white;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+    z-index: 1;
+    min-width: 120px;
+}
+
+nav ul li:hover > ul {
+    display: block;
+}
+
+nav ul li ul li {
+    background-color: white;
+    padding: 5px 10px;
+    margin: 0;
+    white-space: nowrap;
+}
+
+nav ul li ul li a {
+    color: #333;
+    text-decoration: none;
+}
+
+nav ul li ul li:hover {
+    background-color: #ddd;
+}
+
+/* 導覽列標題和左右連結 */
+.nav-title {
+    position: absolute;
+    top: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 30px;
+    font-weight: bold;
+    font-family: serif;
+    text-align: center;
+}
+
+.nav-links {
+    position: absolute;
+    left: 20px;
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-right {
+    position: absolute;
+    right: 20px;
+    top: 105px;
+    display: flex;
+    align-items: center;
+}
+
+.nav-right .icon {
+    margin-right: 10px;
+}
+
+.nav-right .book-btn {
+    background-color: #d0d0d0;
+    padding: 8px 16px;
+    text-decoration: none;
+    color: #333;
+}
+
+
+
+/* Main Content Styling */
+.container {
+    max-width: 1920px;
+    margin: auto;
+    padding: 20px;
+}
+
+.header {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.box {
+    padding: 20px;
+    margin: 10px 0;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-img {
+    margin-right: 40px;
+    margin-top: 50px; /* 調整這個數值以達到你想要的垂直位置 */
+}
+
+
+.opening-hours,
+.contact,
+.address,
+.map {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* 開放時間表樣式 */
+.opening-hours {
+    max-width: 1920px;
+    padding: 20px;
+}
+
+
+/* Contact and Copy Feedback */
+.copyable {
+    cursor: pointer;
+    font-size: 2em;
+    color: #333;
+}
+
+.copy-feedback {
+    font-size: 0.9em;
+    color: green;
+    margin-top: 5px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.copy-feedback.show {
+    opacity: 1;
+}
+
+
+
+/* Address and Map */
+.address-map {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 80px;
+	padding-right: 80px;
+}
+
+.address, .map {
+    width: 48%;
+}
+
+.address p, .contact p {
+    font-size: 1.1em;
+}
+
+.map iframe {
+    width: 100%;
+    height: 450px;
+    border: none;
+}
+/* 底部 */
+footer {
+    margin-top: 20px;
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+
+footer .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1920px;
+    margin: 0 auto;
+}
+
+footer .footer-left {
+    font-size: 16px;
+}
+
+footer .footer-right {
+    display: flex;
+    align-items: center;
+}
+
+footer .footer-right p {
+    font-size: 16px;
+    margin: 0;
+    margin-right: 10px;
+}
