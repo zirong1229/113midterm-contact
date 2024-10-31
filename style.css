@@ -32,6 +32,10 @@ body::before {
     z-index: -1;
 }
 
+.nav-title a {
+    color: inherit;          /* 使用父元素的顏色 */
+    text-decoration: none;   /* 移除底線 */
+}
 
 /* 導覽列 */
 header {
@@ -253,30 +257,52 @@ nav ul li ul li:hover {
 }
 /* 底部 */
 footer {
-    margin-top: 20px;
     background-color: #f0f0f0;
     padding: 20px;
 }
 
-footer .footer-content {
+.footer-content {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1920px;
-    margin: 0 auto;
+    justify-content: space-between; /* Distributes space between left and right sections */
+    align-items: center; /* Aligns items vertically */
 }
 
-footer .footer-left {
-    font-size: 16px;
+.footer-left {
+    text-align: left; /* Aligns text to the left */
 }
 
-footer .footer-right {
+.footer-left p {
+    margin-bottom: 5px;
+    font-size: 14px;
+    margin-right: 10cm;
+}
+
+/* Adjustments for social icons */
+.social-icons {
+    display: flex; /* Use flexbox for social icons */
+    align-items: center; /* Aligns icons vertically */
+    margin-top: 10px;
+}
+
+.social-icons a {
+    margin: 0 10px;
+}
+
+/* Set a fixed height for icons */
+.social-icons img {
+    width: 36px; /* Set a width for the icons */
+    height: 36px; /* Set a fixed height for the icons */
+    display: block; /* Ensures there are no gaps */
+}
+
+/* Footer left section adjustment to ensure proper spacing */
+.footer-left {
     display: flex;
-    align-items: center;
+    flex-direction: column; /* Aligns the texts vertically */
 }
 
-footer .footer-right p {
-    font-size: 16px;
-    margin: 0;
-    margin-right: 10px;
+/* Optional: Ensuring consistent vertical alignment */
+.footer-left p {
+    margin: 200; /* Removes default margin to avoid spacing issues */
 }
+
