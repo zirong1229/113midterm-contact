@@ -1,20 +1,19 @@
-/* 全局設置 */
-* {
+html, body {
+    height: 100%;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+	box-sizing: border-box;
 }
 
+/* 頁面內容容器 */
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    max-width: 1920px;
+    max-width: 100%;
     margin: 0 auto;
-    height: 1540px;
-    
-    /* 背景圖片設置 */
-    background-image: url('bc.jpg');
-    background-size: cover;
+    flex: 1; /* 填滿剩餘空間 */
+    background-image: url('./bc.png');
+    background-size: 100%;
     background-position: center;
     background-attachment: fixed;
     position: relative;
@@ -22,29 +21,65 @@ body {
 
 body::before {
     content: "";
+    height: 100%;
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(255,255,255,0.60); /* 調整透明度（0.3 是 30% 不透明） */
     pointer-events: none; /* 讓覆蓋層不影響互動 */
     z-index: -1;
 }
 
+
+
 .nav-title a {
     color: inherit;          /* 使用父元素的顏色 */
     text-decoration: none;   /* 移除底線 */
+    font-family: serif;
+    position: relative;      /* 啟用相對定位 */
+    top: -20px;              /* 向上移動 10px */
 }
 
-/* 導覽列 */
+/* 大於 800px 的媒體查詢 */
+@media screen and (min-width: 800px) {
+    label {
+        display: none;
+    }
+	
+	   	/* 隱藏 checkbox */
+    input[type="checkbox"] {
+    display: none;
+    }
+	.menu{
+		display: none;
+	}
+
+    nav ul {
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    nav ul li {
+        position: relative;
+    }
+
+    nav ul li > ul {
+        display: none;
+        position: absolute;
+    }
+
+    nav ul li:hover > ul {
+        display: block;
+    }
+	/* 導覽列 */
 header {
     position: relative;
-    max-width: 1920px;
+    max-width: 100%;
     width: 100%;
     height: 150px;
     margin: 0 auto;
-    background-color: #b0acac;
+    background-color: #DABEA7;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -80,23 +115,38 @@ nav ul li a {
     font-weight: bold;
     padding: 8px 50px;
     display: block;
+    position: relative;
+    transition: color 0.3s ease; /* 加入過渡效果 */
 }
 
-nav ul li a:hover {
-    background-color: #ddd;
-    border-radius: 0px;
+/* Hover 畫線動畫 */
+nav ul li a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: #666; /* 灰色畫線 */
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: width 0.3s ease; /* 畫線動畫效果 */
 }
 
-/* 下拉選單 */
+nav ul li a:hover::after {
+    width: 80%; /* 畫線展開至 80% */
+}
+
+/* 子選單 */
 nav ul li > ul {
     display: none;
     position: absolute;
-    top: 42px;
+    top: 47px;
     left: 0;
     background-color: white;
-    box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
     z-index: 1;
-    min-width: 120px;
+    min-width: 100px;
 }
 
 nav ul li:hover > ul {
@@ -119,7 +169,6 @@ nav ul li ul li:hover {
     background-color: #ddd;
 }
 
-/* 導覽列標題和左右連結 */
 .nav-title {
     position: absolute;
     top: 32px;
@@ -131,37 +180,124 @@ nav ul li ul li:hover {
     text-align: center;
 }
 
-.nav-links {
-    position: absolute;
-    left: 20px;
-    display: flex;
+}
+
+
+/* 小於 800px 的媒體查詢 */
+@media screen and (max-width: 800px) {
+    label {
+        display: block;
+    }
+	
+   	/* 隱藏 checkbox */
+    input[type="checkbox"] {
+    display: none;
+    }
+	.dropdown-menu{
+		display: none;
+	}
+	ul, ol {
     list-style: none;
-    margin: 0;
     padding: 0;
+    margin: 0;
 }
 
-.nav-links li {
-    margin: 0 15px;
+    nav ul li {
+        width: 100%;
+    }
+
+    nav ul li a {
+        padding: 10px 20px;
+        text-align: left;
+    }
+	
+	nav {
+  background: #ccc;
+  box-shadow: 0px 1px 3px #00000088;
+}
+nav::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+nav h1 {
+  float: left;
+  padding-left: 50px;
+  line-height: 50px;
 }
 
-.nav-right {
-    position: absolute;
-    right: 20px;
-    top: 105px;
-    display: flex;
-    align-items: center;
+/* 隱藏 checkbox */
+input {
+  display: none;
 }
 
-.nav-right .icon {
-    margin-right: 10px;
+/* 漢堡按鈕 */
+label {
+  float: right;
+  padding-right: 50px;
+  line-height: 50px;
+  cursor: pointer;
+}
+label img {
+  width: 30px;
+  vertical-align: middle;
 }
 
-.nav-right .book-btn {
-    background-color: #d0d0d0;
-    padding: 8px 16px;
-    text-decoration: none;
-    color: #333;
+/* menu*/
+.menu {
+  clear: both;
+  background: #fff;
 }
+.menu li {
+  text-align: center;
+  border-bottom: 1px solid #efefef;
+}
+.menu li a {
+  display: block;
+  line-height: 50px;
+  font-size: 18px;
+  color: #5d5d5d;
+  text-decoration: none;/* 移除底線 */
+}
+.menu li a:hover {
+  background: #5d5d5d;
+  color: #fff;
+}
+
+/* 下拉選單效果 */
+.menu {
+  max-height: 0;
+  overflow: hidden;
+  transition: 0.2s;
+  /* 動畫秒數 */
+}
+
+input:checked ~ .menu {
+  max-height: 900px;
+}
+
+/* mediaquery */
+@media screen and (min-width: 800px) {
+  label {
+    display: none;
+  }
+
+  .menu {
+    float: right;
+    clear: none;
+    max-height: 50px;
+    background: #eee;
+  }
+  .menu li {
+    display: inline-block;
+  }
+  .menu li a {
+    padding: 0 15px;
+  }
+}
+	
+}
+
 
 
 
@@ -194,7 +330,16 @@ nav ul li ul li:hover {
     margin-top: 50px; /* 調整這個數值以達到你想要的垂直位置 */
 }
 
-
+@media (max-width: 800px) {	    
+	.address-map{
+        flex-direction: column;
+        align-items: center;
+	}
+    .address,
+	.map{
+        width: 100%; /* 設定每個項目寬度為100% */
+    }
+}
 .opening-hours,
 .contact,
 .address,
@@ -259,50 +404,49 @@ nav ul li ul li:hover {
 footer {
     background-color: #f0f0f0;
     padding: 20px;
+    text-align: center;
+    margin-top: auto; /* 將 footer 推到底部 */
 }
 
 .footer-content {
     display: flex;
-    justify-content: space-between; /* Distributes space between left and right sections */
-    align-items: center; /* Aligns items vertically */
+    justify-content: space-between; /* 分配空間到左右兩側 */
+    align-items: center; /* 垂直對齊 */
 }
 
 .footer-left {
-    text-align: left; /* Aligns text to the left */
+    text-align: left; /* 文字對齊到左側 */
 }
 
 .footer-left p {
     margin-bottom: 5px;
     font-size: 14px;
-    margin-right: 10cm;
 }
 
-/* Adjustments for social icons */
 .social-icons {
-    display: flex; /* Use flexbox for social icons */
-    align-items: center; /* Aligns icons vertically */
-    margin-top: 10px;
+    display: flex; /* 使用 Flexbox 排列社交圖標 */
+    align-items: center; /* 垂直對齊 */
+    padding-top: 10px;
 }
 
 .social-icons a {
     margin: 0 10px;
 }
 
-/* Set a fixed height for icons */
 .social-icons img {
-    width: 36px; /* Set a width for the icons */
-    height: 36px; /* Set a fixed height for the icons */
-    display: block; /* Ensures there are no gaps */
+    width: 36px; /* 設定圖標大小 */
+    height: 36px;
+    display: block;
 }
 
-/* Footer left section adjustment to ensure proper spacing */
-.footer-left {
-    display: flex;
-    flex-direction: column; /* Aligns the texts vertically */
-}
+/* RWD 設定 */
+@media (max-width: 800px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+    }
 
-/* Optional: Ensuring consistent vertical alignment */
-.footer-left p {
-    margin: 200; /* Removes default margin to avoid spacing issues */
+    footer {
+        width: 100%; /* 確保 footer 寬度填滿 */
+    }
 }
-
