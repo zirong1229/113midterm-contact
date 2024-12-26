@@ -2,14 +2,29 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Contact</title>
-<link href="style.css" rel="stylesheet" type="text/css">
+<title>Home</title>
+<link href="stytle.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
     <header>
 <nav>
+	<label for="switch"><img src="https://static.thenounproject.com/png/547171-200.png"></label>
+  <input type="checkbox" id="switch">
+	<h1 class="nav-title"><a href="https://zirong1229.github.io/113midterm/">Le Rêve Salon</a></h1>
+  <ul class="menu">
+    <li><a href="https://zirong1229.github.io/113midterm/">Home</a></li>
+    <li><a href="https://zirong1229.github.io/113midterm-artists/">Artists</a></li>
+    <li><a href="https://zirong1229.github.io/113midterm-price/">Price</a></li>
+    <li><a href="##">Hair Washing</a></li>
+	<li><a href="##">Cut + Styling</a></li>
+	<li><a href="##">Color</a></li>
+	<li><a href="##">Hair Donation</a></li>
+	<li><a href="https://zirong1229.github.io/113midterm-contact/">Contact</a></li>
+	<li><a href="https://zirong1229.github.io/113midterm-book/">Book</a></li>
+  </ul>
     <ul class="dropdown-menu">
+		<li><a href="https://zirong1229.github.io/113midterm/">Home</a></li>
         <li><a href="#">About</a>
             <ul>
                 <li><a href=" https://zirong1229.github.io/113midterm-artists/">Artists</a></li>
@@ -25,12 +40,9 @@
             </ul>
         </li>
         <li><a href="https://zirong1229.github.io/113midterm-contact/">Contact</a></li>
+		<li><a href="https://zirong1229.github.io/113midterm-book/">Book</a></li>
     </ul>
-     <h1 class="nav-title"><a href="https://zirong1229.github.io/113midterm/">Le Rêve Salon</a></h1>
-    <div class="nav-right">
-        <span class="icon">🛒</span>
-        <a href="https://zirong1229.github.io/113midterm-book/" class="book-btn">Book an Appointment</a>
-    </div>
+
 </nav>
 
     </header>
@@ -38,7 +50,7 @@
     <div class="spacer"></div>
 
     <!-- Main Content -->
-    <div class="container">
+    <section class="container">
 
 
         <!-- Opening Hours -->
@@ -55,9 +67,10 @@
             <p id="email" class="copyable" onclick="copyToClipboard('email')">Email: lerevesalon@gmail.com</p>
             <span id="copy-feedback" class="copy-feedback"></span>
         </div>
+	
 
         <!-- Address and Map -->
-        <div class="address-map">
+        <section class="address-map">
             <div class="address">
                 <h1>Address</h1>
                 <p>45 Rue de Rivoli, 75001 Paris, France</p>
@@ -65,8 +78,8 @@
             <div class="map">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.976720675047!2d2.3444991753151965!3d48.85865430068949!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e1f076ac6df%3A0xbd61e8f0a7eaee73!2zNDUgUnVlIGRlIFJpdm9saSwgNzUwMDEgUGFyaXMsIOazleWciw!5e0!3m2!1szh-TW!2stw!4v1730350043596!5m2!1szh-TW!2stw" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
-        </div>
-    </div>
+        </section>
+	</section>
 
     <script>
         function copyToClipboard(elementId) {
@@ -81,7 +94,7 @@
                     feedback.innerText = "";
                 }, 2000);
             }).catch(err => {
-                console.error("COPY FAIL: ", err);
+                console.error("複製文字失敗: ", err);
             });
         }
     </script>
@@ -106,6 +119,6 @@
         </div>
     </div>
 </footer>
-
+````````````
 </body>
 </html>
